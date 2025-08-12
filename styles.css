@@ -733,3 +733,31 @@ body {
 /* Pricing section image height fix */
 .pricing .pricing-image img { height: 420px; width: 100%; object-fit: cover; border-radius: 15px; }
 @media (max-width: 768px) { .pricing .pricing-image img { height: 280px; } }
+
+/* Dropdown menu */
+.navbar .dropdown { position: relative; }
+.navbar .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #ffffff; border: 1px solid #e8eef5; border-radius: 8px; padding: 10px 0; box-shadow: 0 12px 28px rgba(13,38,76,.12); min-width: 260px; z-index: 1000; }
+.navbar .dropdown-menu li { padding: 0; }
+.navbar .dropdown-menu a { display: block; padding: 10px 16px; color: #0f2740; text-decoration: none; }
+.navbar .dropdown-menu a:hover { background: #f7fafc; color: #0b3760; }
+.navbar .dropdown:hover .dropdown-menu { display: block; }
+
+/* Mobile: make dropdown open on tap via a class */
+.navbar .dropdown.open .dropdown-menu { display: block; position: static; box-shadow: none; border: 0; padding: 6px 0; }
+
+/* Ensure mobile menu covers full width and stacks */
+@media (max-width: 768px) {
+  .nav-content.active { display: flex; }
+  .nav-content.active .nav-menu { display: grid; gap: 10px; }
+  .nav-content.active .dropdown-menu a { padding-left: 26px; }
+}
+
+@media (max-width: 768px) {
+  /* Mobile navbar panel */
+  .navbar .container { position: relative; }
+  .nav-content { display: none; position: absolute; top: 64px; left: 0; right: 0; background: #ffffff; padding: 14px 16px; border: 1px solid #e8eef5; border-radius: 12px; box-shadow: 0 12px 28px rgba(13,38,76,.12); z-index: 1000; }
+  .nav-content.active { display: flex; flex-direction: column; align-items: stretch; gap: 12px; }
+  .nav-content.active .nav-menu { display: grid; gap: 10px; }
+  .navbar .dropdown-menu { position: static; border: 0; box-shadow: none; padding: 6px 0; }
+  .navbar .dropdown-menu a { padding-left: 22px; }
+}
